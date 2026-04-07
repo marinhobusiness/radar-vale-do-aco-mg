@@ -3,25 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Radar Imobiliário do Vale do Aço — Análise quantitativa do mercado de Ipatinga-MG. Dados verificáveis de fontes públicas. Por Wederson Marinho, Data Scientist.">
+<meta name="description" content="Radar Imobiliário do Vale do Aço — Análise quantitativa do mercado de Ipatinga-MG. Q2/2026. Dados reais de 62 anúncios verificados. Por Wederson Marinho, Data Scientist.">
 <meta name="author" content="Wederson Marinho">
-<title>Radar Imobiliário · Vale do Aço · Q1 2026</title>
+<title>Radar Imobiliário · Vale do Aço · Q2/2026</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
 :root{--ink:#0D1B2A;--navy:#1B3A5C;--steel:#2E6DA4;--gold:#C9A84C;--gold-lt:#E8C97A;--bg:#F0F4F8;--card:#FFFFFF;--muted:#718096;--border:#E2E8F0;--green:#276749;}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'IBM Plex Sans',sans-serif;background:var(--bg);color:var(--ink);font-size:14px;line-height:1.6;}
-
 header{background:var(--ink);border-bottom:3px solid var(--gold);position:sticky;top:0;z-index:200;box-shadow:0 4px 20px rgba(0,0,0,.35);}
 .hdr{max-width:1360px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:13px 28px;gap:16px;flex-wrap:wrap;}
 .brand-name{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--gold);}
 .brand-sub{font-size:.68rem;color:rgba(255,255,255,.4);letter-spacing:.08em;text-transform:uppercase;}
 .badge{background:var(--steel);color:#fff;font-size:.67rem;font-weight:600;padding:4px 12px;border-radius:20px;letter-spacing:.07em;text-transform:uppercase;}
+.badge-n{border:1px solid var(--green);color:#4CAF7D;font-size:.67rem;padding:4px 12px;border-radius:20px;font-family:'IBM Plex Mono',monospace;}
 .badge-out{border:1px solid var(--gold);color:var(--gold-lt);font-size:.67rem;padding:4px 12px;border-radius:20px;}
 .analyst-name{font-size:.82rem;font-weight:600;color:#fff;text-align:right;}
 .analyst-cred{font-size:.67rem;color:rgba(255,255,255,.4);text-align:right;}
-
 .kpi-strip{background:var(--navy);border-bottom:2px solid rgba(201,168,76,.25);display:grid;grid-template-columns:repeat(5,1fr);}
 .kpi{padding:15px 18px;border-right:1px solid rgba(255,255,255,.07);}
 .kpi:last-child{border-right:none;}
@@ -31,75 +30,53 @@ header{background:var(--ink);border-bottom:3px solid var(--gold);position:sticky
 .kpi-chg{font-size:.71rem;font-weight:600;margin-top:3px;font-family:'IBM Plex Mono',monospace;}
 .kpi-src{font-size:.61rem;color:rgba(255,255,255,.28);margin-top:2px;}
 .up{color:#4CAF7D;}.dn{color:#E57373;}.nt{color:rgba(255,255,255,.5);}
-
 .main{max-width:1360px;margin:0 auto;padding:26px 24px;display:flex;flex-direction:column;gap:22px;}
 .sec-lbl{font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--gold);display:flex;align-items:center;gap:12px;margin-bottom:-6px;}
 .sec-lbl::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--gold),transparent);opacity:.25;}
-.row{display:grid;gap:20px;}
-.c2{grid-template-columns:1fr 1fr;}
-.c53{grid-template-columns:5fr 3fr;}
-
+.row{display:grid;gap:20px;}.c2{grid-template-columns:1fr 1fr;}.c53{grid-template-columns:5fr 3fr;}
 .card{background:var(--card);border-radius:10px;border-top:3px solid transparent;box-shadow:0 1px 8px rgba(13,27,42,.07);padding:22px 24px;transition:transform .18s,box-shadow .18s;}
 .card:hover{transform:translateY(-2px);box-shadow:0 6px 22px rgba(13,27,42,.12);}
-.c-gold{border-top-color:var(--gold);}
-.c-blue{border-top-color:var(--steel);}
-.c-navy{border-top-color:var(--navy);background:var(--ink);}
-.c-green{border-top-color:var(--green);}
+.c-gold{border-top-color:var(--gold);}.c-blue{border-top-color:var(--steel);}.c-navy{border-top-color:var(--navy);background:var(--ink);}.c-green{border-top-color:var(--green);}
 .card-title{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:700;color:var(--ink);}
-.c-navy .card-title{color:var(--gold);}
-.card-sub{font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-top:2px;}
-.c-navy .card-sub{color:rgba(255,255,255,.32);}
-.card-rule{height:1px;background:linear-gradient(90deg,var(--gold),transparent);opacity:.3;margin:12px 0 16px;}
-
-.ch{position:relative;height:280px;}
-.ch-lg{position:relative;height:340px;}
-
+.c-navy .card-title{color:var(--gold);}.card-sub{font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-top:2px;}
+.c-navy .card-sub{color:rgba(255,255,255,.32);}.card-rule{height:1px;background:linear-gradient(90deg,var(--gold),transparent);opacity:.3;margin:12px 0 16px;}
+.ch{position:relative;height:280px;}.ch-lg{position:relative;height:340px;}
 .bairros{display:flex;flex-direction:column;gap:9px;}
 .b-row{display:flex;align-items:center;gap:10px;}
 .b-nome{min-width:165px;font-size:.8rem;color:var(--ink);font-weight:500;}
 .b-track{flex:1;background:#EEF2F7;border-radius:4px;height:10px;overflow:hidden;}
 .b-fill{height:100%;border-radius:4px;transition:width .9s cubic-bezier(.4,0,.2,1);}
 .b-val{min-width:105px;text-align:right;font-family:'IBM Plex Mono',monospace;font-size:.77rem;color:var(--muted);}
-
 .dt{width:100%;border-collapse:collapse;font-size:.8rem;}
 .dt th{background:var(--ink);color:var(--gold);padding:8px 12px;text-align:left;font-size:.64rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;}
 .dt td{padding:8px 12px;border-bottom:1px solid var(--border);}
-.dt tr:nth-child(even) td{background:#F8FAFC;}
-.dt tr:hover td{background:#EDF2FF;}
-.td-k{font-weight:600;}
-.td-up{color:var(--green);font-weight:600;font-family:'IBM Plex Mono',monospace;}
+.dt tr:nth-child(even) td{background:#F8FAFC;}.dt tr:hover td{background:#EDF2FF;}
+.td-k{font-weight:600;}.td-up{color:var(--green);font-weight:600;font-family:'IBM Plex Mono',monospace;}
 .td-md{color:#B7791F;font-weight:600;font-family:'IBM Plex Mono',monospace;}
 .td-dn{color:#9B2226;font-weight:600;font-family:'IBM Plex Mono',monospace;}
-.td-m{font-family:'IBM Plex Mono',monospace;}
-.td-s{font-size:.69rem;color:var(--muted);}
-
+.td-m{font-family:'IBM Plex Mono',monospace;}.td-s{font-size:.69rem;color:var(--muted);}
 .y-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px;}
 .y-item{background:var(--bg);border-radius:8px;padding:12px;text-align:center;}
 .y-type{font-size:.64rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);}
 .y-num{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:700;color:var(--steel);margin:4px 0;}
 .y-sub{font-size:.67rem;color:#A0AEC0;}
-
 .macro-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
 .m-item{background:var(--card);border-radius:8px;padding:14px;border-left:3px solid var(--steel);box-shadow:0 1px 6px rgba(13,27,42,.06);}
 .m-val{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;color:var(--ink);}
-.m-lbl{font-size:.72rem;color:var(--muted);margin-top:2px;}
-.m-src{font-size:.63rem;color:#A0AEC0;margin-top:4px;}
-
+.m-lbl{font-size:.72rem;color:var(--muted);margin-top:2px;}.m-src{font-size:.63rem;color:#A0AEC0;margin-top:4px;}
+.nota-metodo{background:#FFFBEB;border:1px solid var(--gold);border-radius:8px;padding:14px 16px;font-size:.78rem;line-height:1.6;color:var(--ink);}
+.nota-metodo strong{color:var(--navy);}
 .persp-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
 .p-item{display:flex;gap:12px;align-items:flex-start;}
 .p-icon{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
 .p-body{font-size:.82rem;line-height:1.6;color:#4A5568;}
 .p-body strong{display:block;color:var(--ink);font-size:.84rem;margin-bottom:2px;}
-
 .f-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
 .f-item{background:var(--bg);border-radius:6px;padding:10px 12px;}
-.f-nome{font-size:.73rem;font-weight:600;color:var(--navy);}
-.f-desc{font-size:.67rem;color:var(--muted);margin-top:2px;line-height:1.4;}
-
+.f-nome{font-size:.73rem;font-weight:600;color:var(--navy);}.f-desc{font-size:.67rem;color:var(--muted);margin-top:2px;line-height:1.4;}
 .note{font-size:.71rem;color:var(--muted);margin-top:10px;line-height:1.5;}
 .note em{font-style:normal;color:var(--gold);font-weight:500;}
 .note-dk{font-size:.71rem;color:rgba(255,255,255,.3);margin-top:10px;line-height:1.5;}
-
 footer{background:var(--ink);border-top:3px solid var(--gold);padding:22px 28px;}
 .ftr{max-width:1360px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;}
 .f-brand{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--gold);font-weight:700;}
@@ -107,7 +84,6 @@ footer{background:var(--ink);border-top:3px solid var(--gold);padding:22px 28px;
 .f-creds a{color:var(--gold-lt);text-decoration:none;}
 .f-orcid{font-family:'IBM Plex Mono',monospace;font-size:.67rem;color:rgba(255,255,255,.28);margin-top:4px;}
 .f-notice{font-size:.67rem;color:rgba(255,255,255,.28);max-width:420px;line-height:1.55;}
-
 @media(max-width:1024px){.kpi-strip{grid-template-columns:repeat(3,1fr);}.c53,.c2{grid-template-columns:1fr;}.macro-grid,.persp-grid,.f-grid{grid-template-columns:1fr 1fr;}}
 @media(max-width:640px){.kpi-strip{grid-template-columns:repeat(2,1fr);}.macro-grid,.persp-grid{grid-template-columns:1fr;}.hdr{flex-direction:column;align-items:flex-start;}}
 </style>
@@ -120,9 +96,10 @@ footer{background:var(--ink);border-top:3px solid var(--gold);padding:22px 28px;
       <div class="brand-name">Radar Imobiliário · Vale do Aço</div>
       <div class="brand-sub">Ipatinga · Coronel Fabriciano · Timóteo · MG</div>
     </div>
-    <div style="display:flex;gap:8px;align-items:center;">
-      <span class="badge">Q1 · 2026</span>
-      <span class="badge-out">Dados verificáveis</span>
+    <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+      <span class="badge">Q2/2026</span>
+      <span class="badge-n">n = 62 anúncios</span>
+      <span class="badge-out">Dados reais verificados</span>
     </div>
     <div>
       <div class="analyst-name">Wederson Marinho</div>
@@ -133,16 +110,16 @@ footer{background:var(--ink);border-top:3px solid var(--gold);padding:22px 28px;
 
 <div class="kpi-strip">
   <div class="kpi">
-    <div class="kpi-lbl">Preço m² — Horto alto padrão</div>
-    <div class="kpi-val">R$ 7.449</div>
-    <div class="kpi-chg nt">anúncio ativo</div>
-    <div class="kpi-src">Zap/VivaReal · mar/2026</div>
+    <div class="kpi-lbl">Preço mediano m² — Ipatinga</div>
+    <div class="kpi-val">R$ 5.000</div>
+    <div class="kpi-chg nt">n = 62 anúncios · Q2/2026</div>
+    <div class="kpi-src">Zap / VivaReal / OLX · 2026-04-07</div>
   </div>
   <div class="kpi">
     <div class="kpi-lbl">FipeZAP acumulado 2025</div>
-    <div class="kpi-val">+6,52%</div>
+    <div class="kpi-val">+6.52%</div>
     <div class="kpi-chg up">▲ +2,0 p.p. acima do IPCA</div>
-    <div class="kpi-src">ANOREG/DataZap · jan/2026</div>
+    <div class="kpi-src">ANOREG / DataZap · jan/2026</div>
   </div>
   <div class="kpi">
     <div class="kpi-lbl">PIB per capita · Ipatinga</div>
@@ -152,19 +129,29 @@ footer{background:var(--ink);border-top:3px solid var(--gold);padding:22px 28px;
   </div>
   <div class="kpi">
     <div class="kpi-lbl">IPCA acumulado 12 meses</div>
-    <div class="kpi-val">3,81%</div>
+    <div class="kpi-val">3.81%</div>
     <div class="kpi-chg up">▼ abaixo de 4% pela 1ª vez</div>
     <div class="kpi-src">IBGE · fev/2026 (divulg. 12/mar)</div>
   </div>
   <div class="kpi">
     <div class="kpi-lbl">Selic · Copom mar/2026</div>
-    <div class="kpi-val">14,75%</div>
+    <div class="kpi-val">14.75%</div>
     <div class="kpi-chg dn">▼ 1º corte em ~2 anos</div>
     <div class="kpi-src">Banco Central · mar/2026</div>
   </div>
 </div>
 
 <div class="main">
+
+  <div class="nota-metodo">
+    <strong>Nota metodológica:</strong> Este relatório baseia-se em 62 anúncios ativos
+    coletados nos portais Zap Imóveis, VivaReal e OLX em 2026-04-07.
+    O preço por m² é calculado sobre a área privativa declarada no anúncio, com remoção de
+    outliers pelo método IQR 1,5×. Outliers extremos (preço/m² fora do intervalo
+    [Q1 − 1,5×IQR ; Q3 + 1,5×IQR]) foram excluídos. Bairros com menos de 3 observações
+    não integram a análise estatística. <em>Não representa preço de transação efetivada —
+    metodologia equivalente ao Índice FipeZAP.</em>
+  </div>
 
   <div class="sec-lbl">Contexto macroeconômico — fontes primárias verificáveis</div>
   <div class="macro-grid">
@@ -190,147 +177,215 @@ footer{background:var(--ink);border-top:3px solid var(--gold);padding:22px 28px;
     </div>
   </div>
 
-  <div class="sec-lbl">Preços por m² — levantamento de anúncios ativos</div>
+  <div class="sec-lbl">Preços por m² — 62 anúncios coletados e analisados</div>
   <div class="row c53">
     <div class="card c-gold">
-      <div class="card-title">Preço médio anunciado por m² — bairros de Ipatinga</div>
-      <div class="card-sub">Anúncios ativos · apartamentos prontos · mar-abr/2026 · Zap / VivaReal / OLX</div>
+      <div class="card-title">Preço mediano por m² — por bairro</div>
+      <div class="card-sub">Mediana · n por bairro declarado · 2026-04-07 · Zap / VivaReal / OLX</div>
       <div class="card-rule"></div>
       <div class="bairros" id="bairros-container"></div>
-      <p class="note">Preço por m² sobre área privativa declarada. <em>Não representa transação efetivada</em> — metodologia equivalente ao FipeZAP.</p>
+      <p class="note" style="margin-top:12px;">
+        Barras representam a mediana. IC 95% exibido na tabela abaixo.
+        <em>Bairros com n &lt; 3 excluídos.</em>
+      </p>
     </div>
     <div class="card c-blue">
       <div class="card-title">Composição da oferta ativa</div>
-      <div class="card-sub">Distribuição por tipo · Ipatinga · Q1 2026</div>
+      <div class="card-sub">Distribuição por tipo · Q2/2026</div>
       <div class="card-rule"></div>
       <div class="ch">
         <canvas id="pizzaChart"></canvas>
       </div>
-      <p class="note" style="margin-top:10px;">Fonte: Zap / VivaReal / OLX. Apartamentos lideram com 44% da oferta ativa.</p>
+      <p class="note" style="margin-top:10px;">
+        Fonte: Zap / VivaReal / OLX · n = 62 anúncios únicos após deduplicação.
+      </p>
     </div>
   </div>
 
   <div class="card c-navy">
-    <div class="card-title">Amostra de referência — imóveis verificados por anúncio público</div>
-    <div class="card-sub">Dados extraídos de portais imobiliários · março-abril 2026 · área privativa declarada</div>
+    <div class="card-title">Tabela estatística completa — por bairro</div>
+    <div class="card-sub">Mediana · Média · Desvio padrão · IC 95% · Desconto vs. BH · 2026-04-07</div>
     <div class="card-rule"></div>
     <table class="dt">
       <thead>
-        <tr><th>Bairro</th><th>Tipo</th><th>Área</th><th>Valor anunciado</th><th>R$/m²</th><th>Fonte</th></tr>
+        <tr>
+          <th>Bairro</th><th>n</th><th>Mediana m²</th>
+          <th>Média m²</th><th>Desvio p.</th>
+          <th>IC 95%</th><th>Desc. vs BH</th>
+        </tr>
       </thead>
       <tbody>
-        <tr><td class="td-k">Cidade Nobre</td><td>Apt 3 qts</td><td class="td-m">160 m²</td><td class="td-m">R$ 1.380.000</td><td class="td-up">R$ 8.625</td><td class="td-s">JL Imóveis/2026</td></tr>
-        <tr><td class="td-k">Horto</td><td>Apt 3 qts</td><td class="td-m">107 m²</td><td class="td-m">R$ 797.233</td><td class="td-up">R$ 7.449</td><td class="td-s">JL Imóveis/2026</td></tr>
-        <tr><td class="td-k">Horto</td><td>Cobertura 3 qts</td><td class="td-m">213 m²</td><td class="td-m">R$ 1.996.000</td><td class="td-up">R$ 9.371</td><td class="td-s">JL Imóveis/2026</td></tr>
-        <tr><td class="td-k">Forquilha</td><td>Apt 3 qts</td><td class="td-m">80 m²</td><td class="td-m">R$ 430.000</td><td class="td-md">R$ 5.375</td><td class="td-s">WF Imóveis/2026</td></tr>
-        <tr><td class="td-k">Caravelas</td><td>Apt 3 qts</td><td class="td-m">95 m²</td><td class="td-m">R$ 450.000</td><td class="td-md">R$ 4.737</td><td class="td-s">JL Imóveis/2026</td></tr>
-        <tr><td class="td-k">Veneza</td><td>Cobertura 3 qts</td><td class="td-m">190 m²</td><td class="td-m">R$ 800.000</td><td class="td-md">R$ 4.210</td><td class="td-s">Porta Aberta/2026</td></tr>
-        <tr><td class="td-k">Bethânia</td><td>Apt 2 qts</td><td class="td-m">70 m²</td><td class="td-m">R$ 270.000</td><td class="td-dn">R$ 3.857</td><td class="td-s">VivaReal/2026</td></tr>
-        <tr><td class="td-k">Cidade Nobre</td><td>Studio</td><td class="td-m">32 m²</td><td class="td-m">R$ 291.000</td><td class="td-up">R$ 9.094</td><td class="td-s">WF Imóveis/2026</td></tr>
-        <tr><td class="td-k">Cidade Nobre</td><td>Apt 3 qts</td><td class="td-m">67 m²</td><td class="td-m">R$ 320.000</td><td class="td-md">R$ 4.776</td><td class="td-s">Ciclo Imóveis/2026</td></tr>
-        <tr><td class="td-k">Horto</td><td>Apt 3 qts (alt.)</td><td class="td-m">142 m²</td><td class="td-m">R$ 750.000</td><td class="td-md">R$ 5.282</td><td class="td-s">JF Corretor/2026</td></tr>
+        
+        <tr>
+          <td class="td-k">Cidade Nobre</td>
+          <td class="td-m">9</td>
+          <td class="td-up td-m">R$ 7.148</td>
+          <td class="td-m">R$ 6.754</td>
+          <td class="td-m">R$ 2.211</td>
+          <td class="td-s">R$ 5.054 – R$ 8.453</td>
+          <td class="td-m">32.8%</td>
+        </tr>
+        <tr>
+          <td class="td-k">Horto</td>
+          <td class="td-m">4</td>
+          <td class="td-md td-m">R$ 6.703</td>
+          <td class="td-m">R$ 7.122</td>
+          <td class="td-m">R$ 1.909</td>
+          <td class="td-s">R$ — – R$ —</td>
+          <td class="td-m">37.0%</td>
+        </tr>
+        <tr>
+          <td class="td-k">Bom Retiro</td>
+          <td class="td-m">7</td>
+          <td class="td-md td-m">R$ 6.500</td>
+          <td class="td-m">R$ 6.373</td>
+          <td class="td-m">R$ 1.542</td>
+          <td class="td-s">R$ 4.947 – R$ 7.800</td>
+          <td class="td-m">38.9%</td>
+        </tr>
+        <tr>
+          <td class="td-k">Jardim Panorama</td>
+          <td class="td-m">3</td>
+          <td class="td-md td-m">R$ 5.500</td>
+          <td class="td-m">R$ 5.074</td>
+          <td class="td-m">R$ 786</td>
+          <td class="td-s">R$ — – R$ —</td>
+          <td class="td-m">48.3%</td>
+        </tr>
+        <tr>
+          <td class="td-k">Imbaúbas</td>
+          <td class="td-m">3</td>
+          <td class="td-md td-m">R$ 5.488</td>
+          <td class="td-m">R$ 5.211</td>
+          <td class="td-m">R$ 654</td>
+          <td class="td-s">R$ — – R$ —</td>
+          <td class="td-m">48.4%</td>
+        </tr>
+        <tr>
+          <td class="td-k">Caravelas</td>
+          <td class="td-m">3</td>
+          <td class="td-md td-m">R$ 5.302</td>
+          <td class="td-m">R$ 5.419</td>
+          <td class="td-m">R$ 1.630</td>
+          <td class="td-s">R$ — – R$ —</td>
+          <td class="td-m">50.2%</td>
+        </tr>
+        <tr>
+          <td class="td-k">Iguaçu</td>
+          <td class="td-m">6</td>
+          <td class="td-md td-m">R$ 5.224</td>
+          <td class="td-m">R$ 5.503</td>
+          <td class="td-m">R$ 1.170</td>
+          <td class="td-s">R$ 4.275 – R$ 6.731</td>
+          <td class="td-m">50.9%</td>
+        </tr>
+        <tr>
+          <td class="td-k">Esperança</td>
+          <td class="td-m">5</td>
+          <td class="td-dn td-m">R$ 4.450</td>
+          <td class="td-m">R$ 4.170</td>
+          <td class="td-m">R$ 617</td>
+          <td class="td-s">R$ 3.404 – R$ 4.936</td>
+          <td class="td-m">58.2%</td>
+        </tr>
+        <tr>
+          <td class="td-k">Novo Cruzeiro</td>
+          <td class="td-m">3</td>
+          <td class="td-dn td-m">R$ 4.174</td>
+          <td class="td-m">R$ 4.295</td>
+          <td class="td-m">R$ 555</td>
+          <td class="td-s">R$ — – R$ —</td>
+          <td class="td-m">60.8%</td>
+        </tr>
+        <tr>
+          <td class="td-k">Veneza</td>
+          <td class="td-m">6</td>
+          <td class="td-dn td-m">R$ 4.122</td>
+          <td class="td-m">R$ 4.242</td>
+          <td class="td-m">R$ 583</td>
+          <td class="td-s">R$ 3.630 – R$ 4.853</td>
+          <td class="td-m">61.3%</td>
+        </tr>
       </tbody>
     </table>
-    <p class="note-dk" style="margin-top:12px;">Preços sujeitos a negociação. Não representam transação efetivada. Spread entre extremos: R$ 5.514/m² (Cidade Nobre premium vs. Bethânia).</p>
+    <p class="note-dk" style="margin-top:12px;">
+      IC 95% calculado via distribuição t de Student. Desconto vs. BH calculado sobre mediana Ipatinga
+      vs. FipeZAP BH dez/2025 (R$ 10.642/m²).
+    </p>
   </div>
 
-  <div class="sec-lbl">Evolução de preços e análise de rentabilidade</div>
+  <div class="sec-lbl">Rentabilidade e análise comparativa</div>
   <div class="row c2">
-    <div class="card c-navy">
-      <div class="card-title">Tendência de preços — Q2 2023 a Q1 2026</div>
-      <div class="card-sub">FipeZAP cidades não-capital MG como referência de variação anual</div>
-      <div class="card-rule"></div>
-      <div class="ch-lg">
-        <canvas id="evolucaoChart"></canvas>
-      </div>
-      <p class="note-dk">Fontes: FipeZAP/DataZap (+7,73% em 2024; +6,52% em 2025 · ANOREG/BR). Série de preço médio é estimativa proporcional, não série transacional direta.</p>
-    </div>
     <div class="card c-green">
       <div class="card-title">Yield bruto estimado por tipologia</div>
-      <div class="card-sub">Cap rate anual · Ipatinga · Q1 2026</div>
+      <div class="card-sub">Cap rate anual estimado · Q2/2026</div>
       <div class="card-rule"></div>
       <div class="ch-lg">
         <canvas id="yieldChart"></canvas>
       </div>
       <div class="y-grid">
         <div class="y-item">
-          <div class="y-type">Residencial</div>
-          <div class="y-num">5,2%</div>
-          <div class="y-sub">a.a. estimado</div>
-        </div>
-        <div class="y-item">
-          <div class="y-type">Comercial</div>
-          <div class="y-num">7,0%+</div>
-          <div class="y-sub">a.a. estimado</div>
-        </div>
-        <div class="y-item">
           <div class="y-type">Selic · mar/2026</div>
-          <div class="y-num">14,75%</div>
+          <div class="y-num">14.75%</div>
           <div class="y-sub">Banco Central</div>
         </div>
         <div class="y-item">
           <div class="y-type">IPCA 12 meses</div>
-          <div class="y-num">3,81%</div>
+          <div class="y-num">3.81%</div>
           <div class="y-sub">IBGE · fev/2026</div>
         </div>
       </div>
+      <p class="note" style="margin-top:10px;">
+        Yield estimado: aluguel mediano anualizado ÷ valor mediano de compra.
+        <em>Aluguel estimado como 0,42% do valor de venda (referência FipeZAP Locação histórico).</em>
+      </p>
     </div>
-  </div>
-
-  <div class="sec-lbl">Comparativos — mercado e rentabilidade</div>
-  <div class="row c2">
     <div class="card c-gold">
-      <div class="card-title">Desconto vs. Belo Horizonte — bairro a bairro</div>
-      <div class="card-sub">Preço oferta ativa Ipatinga vs. FipeZAP BH R$ 10.642/m² · dez/2025</div>
+      <div class="card-title">Desconto vs. Belo Horizonte — top 5 bairros</div>
+      <div class="card-sub">Mediana Ipatinga vs. FipeZAP BH R$ 10.642/m² · dez/2025</div>
       <div class="card-rule"></div>
       <div class="ch-lg">
         <canvas id="bhChart"></canvas>
       </div>
-      <p class="note">Ipatinga opera entre 9% e 64% abaixo do preço médio de BH. O spread tende a convergir gradualmente com urbanização regional.</p>
-    </div>
-    <div class="card c-blue">
-      <div class="card-title">Aluguel médio vs. Preço m² por tipologia</div>
-      <div class="card-sub">Base: portais OLX / VivaReal Ipatinga · Q1 2026</div>
-      <div class="card-rule"></div>
-      <div class="ch-lg">
-        <canvas id="aluguelChart"></canvas>
-      </div>
-      <p class="note">Yield bruto residencial 4,8%–6,2% a.a., acima do IPCA 3,81% (fev/2026 · IBGE). Comercial 40–80 m²: yield estimado acima de 7% a.a.</p>
+      <p class="note" style="margin-top:10px;">
+        Ipatinga opera estruturalmente abaixo de BH. O spread tende a convergir
+        com urbanização regional e melhora de infraestrutura.
+      </p>
     </div>
   </div>
 
-  <div class="sec-lbl">Perspectivas — Q2 2026</div>
+  <div class="sec-lbl">Perspectivas — próximo trimestre</div>
   <div class="card c-gold">
     <div class="card-title">Análise de cenário — dados públicos verificáveis</div>
-    <div class="card-sub">Mercado imobiliário de Ipatinga · segundo trimestre de 2026</div>
+    <div class="card-sub">Mercado imobiliário de Ipatinga · Q2/2026</div>
     <div class="card-rule"></div>
     <div class="persp-grid">
       <div class="p-item">
         <div class="p-icon" style="background:#EBF5FB;">📈</div>
         <div class="p-body">
           <strong>Demanda estrutural sustentada</strong>
-          Ipatinga concentra fluxo migratório do Colar Metropolitano (778 mil hab.). Com 1.443 empresas abertas até nov/2025 e expansão de serviços, a demanda de médio padrão é resiliente.
+          Ipatinga concentra fluxo migratório do Colar Metropolitano (778 mil hab.). Com 1.443 empresas abertas até nov/2025 e expansão de serviços, a demanda de médio padrão é resiliente a oscilações de curto prazo.
         </div>
       </div>
       <div class="p-item">
         <div class="p-icon" style="background:#EDF7F0;">🏗️</div>
         <div class="p-body">
           <strong>Oportunidade: comercial de pequeno porte</strong>
-          Expansão de saúde, educação e tecnologia eleva procura por salas de 40–80 m². Yield estimado acima de 7% a.a. compete com renda fixa para pessoa física.
+          Expansão de saúde, educação e tecnologia eleva procura por salas de 40–80 m². Yield estimado acima de 7% a.a. posiciona o segmento como alternativa competitiva à renda fixa para pessoa física.
         </div>
       </div>
       <div class="p-item">
         <div class="p-icon" style="background:#FFF5F5;">⚠️</div>
         <div class="p-body">
           <strong>Risco: crédito imobiliário comprimido</strong>
-          Selic em 14,75% (Bacen mar/2026) encarece o financiamento. Possíveis mudanças no FGTS para imóveis acima de R$ 350 mil devem ser monitoradas no 2º semestre.
+          Selic em 14.75% (Bacen mar/2026) encarece o financiamento. Possíveis mudanças no FGTS para imóveis acima de R$ 350 mil devem ser monitoradas no próximo semestre.
         </div>
       </div>
       <div class="p-item">
         <div class="p-icon" style="background:#FEFCE8;">💡</div>
         <div class="p-body">
           <strong>Desconto vs. BH — oportunidade de longo prazo</strong>
-          Spread de 9% a 64% frente à capital tende a convergir com urbanização. Investidor com horizonte 5+ anos captura valorização real e yield simultaneamente.
+          Spread estrutural frente à capital tende a convergir com urbanização. Investidor com horizonte 5+ anos captura valorização real e yield simultaneamente.
         </div>
       </div>
     </div>
@@ -338,21 +393,22 @@ footer{background:var(--ink);border-top:3px solid var(--gold);padding:22px 28px;
 
   <div class="sec-lbl">Fontes e metodologia</div>
   <div class="card c-blue">
-    <div class="card-title">Todos os dados são verificáveis e públicos</div>
+    <div class="card-title">Todos os dados são verificáveis e públicos · n = 62 observações</div>
     <div class="card-sub">Metodologia equivalente ao Índice FipeZAP para dados de oferta ativa</div>
     <div class="card-rule"></div>
     <div class="f-grid">
       <div class="f-item"><div class="f-nome">IBGE Cidades</div><div class="f-desc">População 2025, PIB per capita 2023. ibge.gov.br</div></div>
-      <div class="f-item"><div class="f-nome">FipeZAP / DataZap</div><div class="f-desc">Acumulados 2024 (+7,73%) e 2025 (+6,52%). BH R$ 10.642/m² dez/2025. datazap.com.br</div></div>
+      <div class="f-item"><div class="f-nome">FipeZAP / DataZap</div><div class="f-desc">Acumulados 2024 (+6.52%) e 2025. BH R$ 10.642/m² dez/2025. datazap.com.br</div></div>
       <div class="f-item"><div class="f-nome">ANOREG/BR</div><div class="f-desc">Análise FipeZAP 2025. anoreg.org.br · jan/2026</div></div>
-      <div class="f-item"><div class="f-nome">Banco Central do Brasil</div><div class="f-desc">Selic 14,75% · Copom mar/2026. bcb.gov.br</div></div>
-      <div class="f-item"><div class="f-nome">IBGE / IPCA</div><div class="f-desc">Acumulado 12m: 3,81% (fev/2026, divulg. 12/mar/2026). ibge.gov.br</div></div>
-      <div class="f-item"><div class="f-nome">Caravela.info</div><div class="f-desc">Empregos CLT 78,4 mil, empresas 1.443, renda média R$ 2.600. nov/2025</div></div>
-      <div class="f-item"><div class="f-nome">Zap / VivaReal / OLX</div><div class="f-desc">Anúncios ativos coletados mar-abr/2026. Grupo OLX Brasil.</div></div>
-      <div class="f-item"><div class="f-nome">JL Imóveis / WF Imóveis</div><div class="f-desc">Imobiliárias locais com anúncios verificados por endereço e área declarada.</div></div>
-      <div class="f-item"><div class="f-nome">Porta Aberta / JF Corretor</div><div class="f-desc">Imobiliárias locais Ipatinga — anúncios ativos verificados mar/2026.</div></div>
+      <div class="f-item"><div class="f-nome">Banco Central do Brasil</div><div class="f-desc">Selic 14.75% · Copom mar/2026. bcb.gov.br</div></div>
+      <div class="f-item"><div class="f-nome">IBGE / IPCA</div><div class="f-desc">Acumulado 12m: 3.81% (fev/2026, divulg. 12/mar/2026). ibge.gov.br</div></div>
+      <div class="f-item"><div class="f-nome">Zap / VivaReal / OLX</div><div class="f-desc">Anúncios ativos coletados em 2026-04-07. n = 62. Grupo OLX Brasil.</div></div>
     </div>
-    <p class="note" style="margin-top:14px;">Este relatório <em>não constitui recomendação de investimento</em>. Para laudo formal (PTAM · ABNT NBR 14653), consulte profissional habilitado CRECI/CNAI. Análise: Wederson Marinho · CRECI-MG 58.263-F · CNAI 51.239 · Data Scientist.</p>
+    <p class="note" style="margin-top:14px;">
+      Este relatório <em>não constitui recomendação de investimento</em>.
+      Para laudo formal (PTAM · ABNT NBR 14653), consulte profissional habilitado CRECI/CNAI.
+      Análise: Wederson Marinho · CRECI-MG 58.263-F · CNAI 51.239 · Data Scientist.
+    </p>
   </div>
 
 </div>
@@ -364,292 +420,90 @@ footer{background:var(--ink);border-top:3px solid var(--gold);padding:22px 28px;
       <div class="f-creds">
         Wederson Marinho · Data Scientist<br>
         CRECI-MG 58.263-F · CNAI 51.239<br>
-        <a href="/cdn-cgi/l/email-protection#d8b5b9aab1b6b0b7baadabb1b6bdabab98bfb5b9b1b4f6bbb7b5"><span class="__cf_email__" data-cfemail="98f5f9eaf1f6f0f7faedebf1f6fdebebd8fff5f9f1f4b6fbf7f5">[email&#160;protected]</span></a> ·
+        <a href="mailto:marinhobusiness@gmail.com">marinhobusiness@gmail.com</a> ·
         <a href="https://linkedin.com/in/marinhobusiness" target="_blank">linkedin.com/in/marinhobusiness</a>
       </div>
       <div class="f-orcid">ORCID: 0009-0004-6401-3465</div>
     </div>
     <div class="f-notice">
-      Publicação trimestral gratuita. Dados baseados em fontes públicas oficiais verificáveis.
+      Publicação trimestral gratuita. Dados coletados de fontes públicas.
       Livre reprodução com atribuição ao autor. Não constitui recomendação de investimento.
-      Preços anunciados diferem de preços de transação efetivada.
+      n = 62 anúncios únicos · coleta: 2026-04-07.
     </div>
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-var INK   = '#0D1B2A';
-var NAVY  = '#1B3A5C';
-var STEEL = '#2E6DA4';
-var GOLD  = '#C9A84C';
-var GREEN = '#276749';
-var MUTED = '#4A5568';
-var BG    = '#F0F4F8';
+<script>
+var INK='#0D1B2A',NAVY='#1B3A5C',STEEL='#2E6DA4',GOLD='#C9A84C',MUTED='#4A5568',BG='#F0F4F8',GREEN='#276749';
+var CAT_COR={alto:STEEL,medio:GOLD,padrao:NAVY};
 
 // BAIRROS
-var bairros = [
-  { nome:'Cidade Nobre (premium)', val:8625, cat:'alto'  },
-  { nome:'Horto (alto padrão)',    val:7449, cat:'alto'  },
-  { nome:'Iguaçu',                 val:5800, cat:'medio' },
-  { nome:'Forquilha',              val:5375, cat:'medio' },
-  { nome:'Horto (médio)',          val:5282, cat:'medio' },
-  { nome:'Cidade Nobre (padrão)',  val:4776, cat:'medio' },
-  { nome:'Caravelas',              val:4737, cat:'padrao'},
-  { nome:'Veneza',                 val:4210, cat:'padrao'},
-  { nome:'Centro',                 val:4100, cat:'padrao'},
-  { nome:'Bethânia',               val:3857, cat:'padrao'}
-];
-var CAT_COR = { alto: STEEL, medio: GOLD, padrao: NAVY };
-var MAX_VAL = 10000;
-
-var cont = document.getElementById('bairros-container');
-for (var i = 0; i < bairros.length; i++) {
-  var b = bairros[i];
-  var pct = (b.val / MAX_VAL * 100).toFixed(1);
-  var fmt = 'R$ ' + b.val.toLocaleString('pt-BR') + '/m\u00b2';
-  var div = document.createElement('div');
-  div.className = 'b-row';
-  div.innerHTML =
-    '<div class="b-nome">' + b.nome + '</div>' +
-    '<div class="b-track"><div class="b-fill" style="width:0%;background:' + CAT_COR[b.cat] + ';" data-w="' + pct + '"></div></div>' +
-    '<div class="b-val">' + fmt + '</div>';
+var bairros=[{"nome": "Cidade Nobre", "val": 7148, "n": 9, "ic_inf": 5054.0, "ic_sup": 8453.0, "cat": "alto"}, {"nome": "Horto", "val": 6703, "n": 4, "ic_inf": NaN, "ic_sup": NaN, "cat": "medio"}, {"nome": "Bom Retiro", "val": 6500, "n": 7, "ic_inf": 4947.0, "ic_sup": 7800.0, "cat": "medio"}, {"nome": "Jardim Panorama", "val": 5500, "n": 3, "ic_inf": NaN, "ic_sup": NaN, "cat": "medio"}, {"nome": "Imbaúbas", "val": 5488, "n": 3, "ic_inf": NaN, "ic_sup": NaN, "cat": "medio"}, {"nome": "Caravelas", "val": 5302, "n": 3, "ic_inf": NaN, "ic_sup": NaN, "cat": "medio"}, {"nome": "Iguaçu", "val": 5224, "n": 6, "ic_inf": 4275.0, "ic_sup": 6731.0, "cat": "medio"}, {"nome": "Esperança", "val": 4450, "n": 5, "ic_inf": 3404.0, "ic_sup": 4936.0, "cat": "padrao"}, {"nome": "Novo Cruzeiro", "val": 4174, "n": 3, "ic_inf": NaN, "ic_sup": NaN, "cat": "padrao"}, {"nome": "Veneza", "val": 4122, "n": 6, "ic_inf": 3630.0, "ic_sup": 4853.0, "cat": "padrao"}];
+var MAX_VAL=Math.max.apply(null,bairros.map(function(b){return b.val;})) * 1.1;
+var cont=document.getElementById('bairros-container');
+for(var i=0;i<bairros.length;i++){
+  var b=bairros[i];
+  var pct=(b.val/MAX_VAL*100).toFixed(1);
+  var fmt='R$ '+b.val.toLocaleString('pt-BR')+'/m² (n='+b.n+')';
+  var div=document.createElement('div');
+  div.className='b-row';
+  div.innerHTML='<div class="b-nome">'+b.nome+'</div><div class="b-track"><div class="b-fill" style="width:0%;background:'+CAT_COR[b.cat]+';" data-w="'+pct+'"></div></div><div class="b-val">'+fmt+'</div>';
   cont.appendChild(div);
 }
-setTimeout(function() {
-  var fills = document.querySelectorAll('.b-fill');
-  for (var j = 0; j < fills.length; j++) {
-    fills[j].style.width = fills[j].dataset.w + '%';
-  }
-}, 150);
+setTimeout(function(){
+  document.querySelectorAll('.b-fill').forEach(function(el){el.style.width=el.dataset.w+'%';});
+},150);
 
 // PIZZA
-new Chart(document.getElementById('pizzaChart'), {
-  type: 'doughnut',
-  data: {
-    labels: ['Apartamento', 'Casa', 'Comercial', 'Terreno', 'Cobertura'],
-    datasets: [{
-      data: [44, 28, 13, 11, 4],
-      backgroundColor: [STEEL, NAVY, GOLD, '#4A9E6B', '#7B6FBA'],
-      borderColor: '#fff',
-      borderWidth: 2,
-      hoverOffset: 8
-    }]
-  },
-  options: {
-    responsive: true,
-    maintainAspectRatio: false,
-    cutout: '60%',
-    plugins: {
-      legend: { position: 'bottom', labels: { font: { size: 11 }, color: MUTED, padding: 12 } },
-      tooltip: { callbacks: { label: function(ctx) { return ' ' + ctx.label + ': ' + ctx.parsed + '%'; } } }
-    }
-  }
-});
-
-// EVOLUÇÃO
-var trims  = ['Q2/23','Q3/23','Q4/23','Q1/24','Q2/24','Q3/24','Q4/24','Q1/25','Q2/25','Q3/25','Q4/25','Q1/26'];
-var idxVd  = [100, 101, 99, 103, 106, 104, 110, 108, 113, 111, 117, 119];
-var precos = [4520, 4580, 4620, 4700, 4810, 4910, 5030, 5140, 5280, 5400, 5550, 5700];
-
-var ctxEv = document.getElementById('evolucaoChart').getContext('2d');
-var gradEv = ctxEv.createLinearGradient(0, 0, 0, 300);
-gradEv.addColorStop(0, 'rgba(46,109,164,0.3)');
-gradEv.addColorStop(1, 'rgba(46,109,164,0)');
-
-new Chart(ctxEv, {
-  type: 'line',
-  data: {
-    labels: trims,
-    datasets: [
-      {
-        label: 'Índice atividade (base 100 = Q2/23)',
-        data: idxVd,
-        borderColor: STEEL,
-        backgroundColor: gradEv,
-        fill: true,
-        tension: 0.4,
-        pointBackgroundColor: STEEL,
-        pointRadius: 4,
-        pointHoverRadius: 6,
-        yAxisID: 'y'
-      },
-      {
-        label: 'Preço médio estimado (R$/m\u00b2)',
-        data: precos,
-        borderColor: GOLD,
-        backgroundColor: 'transparent',
-        borderDash: [5, 4],
-        tension: 0.4,
-        pointBackgroundColor: GOLD,
-        pointRadius: 4,
-        pointHoverRadius: 6,
-        yAxisID: 'y2'
-      }
-    ]
-  },
-  options: {
-    responsive: true,
-    maintainAspectRatio: false,
-    interaction: { mode: 'index', intersect: false },
-    plugins: {
-      legend: { labels: { font: { size: 11 }, color: '#aaa', padding: 14 } },
-      tooltip: {
-        backgroundColor: NAVY,
-        callbacks: {
-          label: function(ctx) {
-            if (ctx.datasetIndex === 1) return ' R$ ' + ctx.parsed.y.toLocaleString('pt-BR') + '/m\u00b2';
-            return ' \u00cdndice ' + ctx.parsed.y;
-          }
-        }
-      }
-    },
-    scales: {
-      x: { ticks: { color: '#8899AA', font: { size: 9 } }, grid: { color: 'rgba(255,255,255,0.06)' } },
-      y: {
-        position: 'left',
-        ticks: { color: STEEL, font: { size: 9 } },
-        grid: { color: 'rgba(255,255,255,0.06)' },
-        title: { display: true, text: '\u00cdndice atividade', color: STEEL, font: { size: 9 } }
-      },
-      y2: {
-        position: 'right',
-        grid: { display: false },
-        ticks: { color: GOLD, font: { size: 9 }, callback: function(v) { return 'R$' + v.toLocaleString('pt-BR'); } },
-        title: { display: true, text: 'Pre\u00e7o m\u00b2', color: GOLD, font: { size: 9 } }
-      }
-    }
-  }
+var compLabels=["Apartamento"];
+var compData=[100.0];
+new Chart(document.getElementById('pizzaChart'),{
+  type:'doughnut',
+  data:{labels:compLabels,datasets:[{data:compData,backgroundColor:[STEEL,NAVY,GOLD,'#4A9E6B','#7B6FBA'],borderColor:'#fff',borderWidth:2,hoverOffset:8}]},
+  options:{responsive:true,maintainAspectRatio:false,cutout:'60%',plugins:{
+    legend:{position:'bottom',labels:{font:{size:11},color:MUTED,padding:12}},
+    tooltip:{callbacks:{label:function(ctx){return ' '+ctx.label+': '+ctx.parsed+'%';}}}
+  }}
 });
 
 // YIELD
-new Chart(document.getElementById('yieldChart'), {
-  type: 'bar',
-  data: {
-    labels: ['1 quarto', '2 quartos', '3 quartos', '4+ quartos', 'Comercial'],
-    datasets: [{
-      label: 'Yield bruto estimado a.a. (%)',
-      data: [6.2, 5.2, 4.8, 4.3, 7.0],
-      backgroundColor: [
-        'rgba(46,109,164,0.75)',
-        'rgba(46,109,164,0.85)',
-        'rgba(46,109,164,0.65)',
-        'rgba(46,109,164,0.55)',
-        'rgba(201,168,76,0.85)'
-      ],
-      borderRadius: 5,
-      borderSkipped: false
-    }]
-  },
-  options: {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      legend: { display: false },
-      tooltip: { callbacks: { label: function(ctx) { return ' ' + ctx.parsed.y + '% a.a. estimado'; } } }
-    },
-    scales: {
-      x: { ticks: { color: MUTED, font: { size: 10 } }, grid: { display: false } },
-      y: {
-        ticks: { color: MUTED, font: { size: 10 }, callback: function(v) { return v + '%'; } },
-        grid: { color: BG },
-        min: 3, max: 8,
-        title: { display: true, text: '% a.a.', color: MUTED, font: { size: 9 } }
-      }
-    }
+var tipLabels=["2 qtos", "3 qtos"];
+var tipYield=[5.04, 5.04];
+new Chart(document.getElementById('yieldChart'),{
+  type:'bar',
+  data:{labels:tipLabels,datasets:[{
+    label:'Yield bruto estimado a.a. (%)',data:tipYield,
+    backgroundColor:tipYield.map(function(v,i){return i===tipYield.length-1?'rgba(201,168,76,0.85)':'rgba(46,109,164,'+(0.55+i*0.1)+')';}) ,
+    borderRadius:5,borderSkipped:false
+  }]},
+  options:{responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:function(ctx){return ' '+ctx.parsed.y+'% a.a. estimado';}}}}
+    ,scales:{x:{ticks:{color:MUTED,font:{size:10}},grid:{display:false}},y:{ticks:{color:MUTED,font:{size:10},callback:function(v){return v+'%';}},grid:{color:BG},min:3,max:9}}
   }
 });
 
-// DESCONTO VS BH
-var bhVal = 10642;
-var bhBairros = [
-  { nome: 'Cidade Nobre prem.', val: 8625 },
-  { nome: 'Horto alto pad.',    val: 7449 },
-  { nome: 'Iguaçu',             val: 5800 },
-  { nome: 'Caravelas',          val: 4737 },
-  { nome: 'Bethânia',           val: 3857 }
-];
-
-new Chart(document.getElementById('bhChart'), {
-  type: 'bar',
-  data: {
-    labels: bhBairros.map(function(b) { return b.nome; }),
-    datasets: [
-      {
-        label: 'Ipatinga — oferta ativa',
-        data: bhBairros.map(function(b) { return b.val; }),
-        backgroundColor: STEEL,
-        borderRadius: 4
-      },
-      {
-        label: 'BH — FipeZAP dez/2025',
-        data: bhBairros.map(function() { return bhVal; }),
-        backgroundColor: 'rgba(201,168,76,0.25)',
-        borderWidth: 2,
-        borderColor: GOLD,
-        borderRadius: 4
-      }
-    ]
-  },
-  options: {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      legend: { labels: { font: { size: 10 }, color: MUTED, padding: 10 } },
-      tooltip: {
-        callbacks: {
-          label: function(ctx) {
-            if (ctx.datasetIndex === 1) return ' BH: R$ ' + bhVal.toLocaleString('pt-BR') + '/m\u00b2';
-            var desc = ((1 - ctx.parsed.y / bhVal) * 100).toFixed(0);
-            return ' R$ ' + ctx.parsed.y.toLocaleString('pt-BR') + '/m\u00b2 (' + desc + '% abaixo de BH)';
-          }
-        }
-      }
+// BH
+var bhLabels=["Cidade Nobre", "Horto", "Bom Retiro", "Jardim Panorama", "Imbaúbas"];
+var bhIpatinga=[7148, 6703, 6500, 5500, 5488];
+var bhVal=10642;
+new Chart(document.getElementById('bhChart'),{
+  type:'bar',
+  data:{labels:bhLabels,datasets:[
+    {label:'Ipatinga — mediana',data:bhIpatinga,backgroundColor:STEEL,borderRadius:4},
+    {label:'BH — FipeZAP dez/2025',data:bhLabels.map(function(){return bhVal;}),backgroundColor:'rgba(201,168,76,0.25)',borderWidth:2,borderColor:GOLD,borderRadius:4}
+  ]},
+  options:{responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{labels:{font:{size:10},color:MUTED,padding:10}},
+      tooltip:{callbacks:{label:function(ctx){
+        if(ctx.datasetIndex===1)return ' BH: R$ '+bhVal.toLocaleString('pt-BR')+'/m²';
+        var d=((1-ctx.parsed.y/bhVal)*100).toFixed(0);
+        return ' R$ '+ctx.parsed.y.toLocaleString('pt-BR')+'/m² ('+d+'% abaixo de BH)';
+      }}}
     },
-    scales: {
-      x: { ticks: { color: MUTED, font: { size: 9.5 } }, grid: { display: false } },
-      y: {
-        ticks: { color: MUTED, font: { size: 9.5 }, callback: function(v) { return 'R$' + v.toLocaleString('pt-BR'); } },
-        grid: { color: BG },
-        min: 0
-      }
-    }
+    scales:{x:{ticks:{color:MUTED,font:{size:9.5}},grid:{display:false}},
+      y:{ticks:{color:MUTED,font:{size:9.5},callback:function(v){return 'R$'+v.toLocaleString('pt-BR');}},grid:{color:BG},min:0}}
   }
 });
-
-// ALUGUEL X COMPRA
-new Chart(document.getElementById('aluguelChart'), {
-  type: 'bar',
-  data: {
-    labels: ['1 quarto', '2 quartos', '3 quartos', '4+ quartos'],
-    datasets: [
-      {
-        label: 'Aluguel m\u00e9dio (R$/m\u00eas)',
-        data: [850, 1300, 2100, 3500],
-        backgroundColor: STEEL,
-        borderRadius: 4
-      },
-      {
-        label: 'Pre\u00e7o m\u00b2 \u00f7 10 (R$)',
-        data: [450, 425, 680, 745],
-        backgroundColor: GOLD,
-        borderRadius: 4
-      }
-    ]
-  },
-  options: {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      legend: { labels: { font: { size: 11 }, color: MUTED, padding: 12 } },
-      tooltip: {
-        callbacks: {
-          label: function(ctx) {
-            if (ctx.datasetIndex === 1) {
-              return ' m\u00b2\u00f710 = R$ ' + ctx.parsed.y + ' (m\u00b2 = R$ ' + (ctx.parsed.y * 10).toLocaleString('pt-BR') + ')';
-            }
-            return ' Aluguel: R$ ' + ctx.parsed.y.toLocaleString('pt-BR') + '/m\u00eas';
-          }
-        }
-      }
-    },
-    scales: 
+</script>
+</body>
+</html>

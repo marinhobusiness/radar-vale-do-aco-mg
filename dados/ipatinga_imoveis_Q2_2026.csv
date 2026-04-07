@@ -1,0 +1,66 @@
+bairro,tipo,quartos,banheiros,area_m2,valor_anunciado,preco_m2,logradouro,portal,data_coleta,id_anuncio,titulo
+Cidade Nobre,APARTMENT,3,2,130.0,750000,5769,,Zap Imóveis,2026-04-07,ZAP-CN-001,"Apartamento 3 quartos à venda em Cidade Nobre, Ipatinga"
+Cidade Nobre,APARTMENT,3,2,133.0,1469600,11048,,VivaReal,2026-04-07,VR-CN-002,Lançamento Quebec Residence – 3 quartos Cidade Nobre Ipatinga
+Cidade Nobre,APARTMENT,3,3,163.0,1400000,8589,,Zap Imóveis,2026-04-07,ZAP-CN-003,Apartamento 163 m² 3 quartos Cidade Nobre Ipatinga
+Cidade Nobre,APARTMENT,3,2,180.0,1300000,7222,,VivaReal,2026-04-07,VR-CN-004,Apartamento 3 quartos 180 m² Cidade Nobre Ipatinga
+Cidade Nobre,APARTMENT,3,2,130.5,1265850,9700,,Zap Imóveis,2026-04-07,ZAP-CN-005,Quebec Residence 3 quartos 1 suíte Cidade Nobre Ipatinga
+Cidade Nobre,APARTMENT,3,2,128.0,915000,7148,,Zap Imóveis,2026-04-07,ZAP-CN-006,Apartamento 3q 1s 128 m² Cidade Nobre Ipatinga
+Cidade Nobre,APARTMENT,3,2,130.0,790000,6077,,VivaReal,2026-04-07,VR-CN-007,Apartamento 3 quartos Cidade Nobre Ipatinga
+Cidade Nobre,APARTMENT,3,2,180.0,1580000,8778,,Zap Imóveis,2026-04-07,ZAP-CN-008,Apartamento luxo 3 quartos 180 m² Cidade Nobre Ipatinga
+Cidade Nobre,APARTMENT,3,2,90.0,450000,5000,,VivaReal,2026-04-07,VR-CN-009,Apartamento 3 quartos 1 suíte Cidade Nobre Ipatinga
+Cidade Nobre,APARTMENT,3,3,360.0,900000,2500,,VivaReal,2026-04-07,VR-CN-010,Cobertura 360 m² 3 quartos Cidade Nobre Ipatinga
+Bom Retiro,APARTMENT,2,2,68.0,460000,6765,,Zap Imóveis,2026-04-07,ZAP-BR-001,Apartamento 2 quartos 1 suíte Bom Retiro Ipatinga
+Bom Retiro,APARTMENT,2,1,68.0,318000,4676,,VivaReal,2026-04-07,VR-BR-002,Apartamento 2 quartos Bom Retiro Ipatinga
+Bom Retiro,APARTMENT,2,2,90.0,585000,6500,,Zap Imóveis,2026-04-07,ZAP-BR-003,Apartamento 2 quartos 90 m² Bom Retiro Ipatinga
+Bom Retiro,APARTMENT,3,2,94.0,470000,5000,,VivaReal,2026-04-07,VR-BR-004,Apartamento 3 quartos 94 m² Bom Retiro Ipatinga
+Bom Retiro,APARTMENT,3,2,97.0,520000,5361,,Zap Imóveis,2026-04-07,ZAP-BR-005,Apartamento 3 quartos 97 m² Bom Retiro Ipatinga
+Bom Retiro,APARTMENT,3,2,97.0,695000,7165,,VivaReal,2026-04-07,VR-BR-006,Apartamento 3 quartos frente Bom Retiro Ipatinga
+Bom Retiro,APARTMENT,2,2,82.0,750000,9146,,Zap Imóveis,2026-04-07,ZAP-BR-007,Lançamento 2 quartos Bom Retiro Ipatinga
+Bethânia,APARTMENT,3,2,90.0,350000,3889,,Zap Imóveis,2026-04-07,ZAP-BE-001,Apartamento 3q 1s 2v Bethânia Ipatinga – REF AP695
+Bethânia,APARTMENT,2,2,95.0,300000,3158,,VivaReal,2026-04-07,VR-BE-002,Apartamento 2q 1s 1v Bethânia Ipatinga – REF AP534
+Bethânia,APARTMENT,3,2,85.0,375000,4412,,Zap Imóveis,2026-04-07,ZAP-BE-003,Apartamento 3 quartos 1v Bethânia Ipatinga – REF AP1015
+Bethânia,APARTMENT,3,1,60.0,230000,3833,,OLX,2026-04-07,OLX-BE-004,Apartamento 3 quartos Bethânia Ipatinga
+Bethânia,APARTMENT,3,2,75.0,372000,4960,,VivaReal,2026-04-07,VR-BE-005,Apartamento 3 quartos 1 suíte elevador Bethânia Ipatinga
+Horto,APARTMENT,3,2,91.0,620000,6813,Rua Jacarandá,Zap Imóveis,2026-04-07,ZAP-HO-001,Apartamento 3 quartos 1 suíte Horto Ipatinga
+Horto,APARTMENT,3,2,142.0,750000,5282,,VivaReal,2026-04-07,VR-HO-002,Apartamento 142 m² 3 quartos Horto Ipatinga
+Horto,APARTMENT,1,1,36.0,405000,11250,,VivaReal,2026-04-07,VR-HO-003,Apartamento 1 quarto 36 m² Horto Ipatinga
+Horto,APARTMENT,1,1,50.82,565037,11118,,Zap Imóveis,2026-04-07,ZAP-HO-004,Lançamento 1 quarto 50 m² Horto Ipatinga – entrega 2030
+Horto,APARTMENT,3,2,91.0,600000,6593,,Zap Imóveis,2026-04-07,ZAP-HO-005,Apartamento 3q 1s 2v Horto Ipatinga – JF Corretor
+Horto,APARTMENT,3,2,97.0,950600,9800,,VivaReal,2026-04-07,VR-HO-006,Lançamento 3q 1s varanda gourmet Horto Ipatinga
+Veneza,APARTMENT,2,2,81.0,350000,4321,,Zap Imóveis,2026-04-07,ZAP-VE-001,Apartamento 2 quartos 1 suíte 81 m² Veneza Ipatinga
+Veneza,APARTMENT,2,1,83.0,300000,3614,,VivaReal,2026-04-07,VR-VE-002,Apartamento 2 quartos 83 m² Veneza Ipatinga
+Veneza,APARTMENT,3,2,85.54,454900,5317,,Zap Imóveis,2026-04-07,ZAP-VE-003,Apartamento 3 quartos 1 suíte Veneza I Ipatinga – JL Imóveis
+Veneza,APARTMENT,2,1,75.0,300000,4000,,OLX,2026-04-07,OLX-VE-004,Apartamento 2 quartos 75 m² Veneza Ipatinga
+Veneza,APARTMENT,3,2,94.0,399000,4245,,VivaReal,2026-04-07,VR-VE-005,Apartamento 3 quartos 94 m² Veneza Ipatinga – Netimóveis
+Veneza,APARTMENT,3,2,210.0,830000,3952,,Zap Imóveis,2026-04-07,ZAP-VE-006,Cobertura linear 3 quartos 210 m² Veneza Ipatinga
+Iguaçu,APARTMENT,2,2,69.0,350000,5072,,Zap Imóveis,2026-04-07,ZAP-IG-001,Apartamento 2q 1s elevador Iguaçu Ipatinga
+Iguaçu,APARTMENT,2,1,75.0,329000,4387,,VivaReal,2026-04-07,VR-IG-002,Apartamento 2 quartos 75 m² Iguaçu Ipatinga
+Iguaçu,APARTMENT,2,1,68.0,330000,4853,,VivaReal,2026-04-07,VR-IG-003,Apartamento 2 quartos 68 m² Iguaçu Ipatinga – Netimóveis
+Iguaçu,APARTMENT,3,2,75.0,420000,5600,,Zap Imóveis,2026-04-07,ZAP-IG-004,Apartamento 3 quartos 1 suíte Iguaçu Ipatinga
+Iguaçu,APARTMENT,3,2,108.0,835000,7731,,Zap Imóveis,2026-04-07,ZAP-IG-005,Residencial Vista Bela 3q 1s 2v Iguaçu Ipatinga – dez/2025
+Iguaçu,APARTMENT,2,1,72.0,387000,5375,,VivaReal,2026-04-07,VR-IG-006,Residencial Vista Bela 2 quartos 72 m² Iguaçu Ipatinga
+Caravelas,APARTMENT,2,1,74.0,285000,3851,,Zap Imóveis,2026-04-07,ZAP-CA-001,Apartamento 2 quartos 74 m² Caravelas Ipatinga – JF Corretor
+Caravelas,APARTMENT,2,2,75.46,400000,5302,,VivaReal,2026-04-07,VR-CA-002,Apartamento 2q 1s 75 m² Caravelas Ipatinga – JL Imóveis
+Caravelas,APARTMENT,3,3,183.0,1300000,7104,,Zap Imóveis,2026-04-07,ZAP-CA-003,Apartamento 3q 3b 3v 183 m² Caravelas Ipatinga
+Cariru,APARTMENT,3,1,70.0,285000,4071,,OLX,2026-04-07,OLX-CR-001,Apartamento 3 quartos Cariru Ipatinga
+Cariru,APARTMENT,3,3,200.0,1100000,5500,,Zap Imóveis,2026-04-07,ZAP-CR-002,Apartamento 200 m² Cariru Ipatinga
+Centro,APARTMENT,3,2,104.0,560000,5385,,Zap Imóveis,2026-04-07,ZAP-CE-001,Apartamento 3 quartos 1 suíte Centro Ipatinga
+Esperança,APARTMENT,3,3,180.0,780000,4333,,VivaReal,2026-04-07,VR-ES-001,Apartamento 3q 2s 180 m² Esperança Ipatinga – Netimóveis
+Esperança,APARTMENT,2,1,55.0,169000,3073,,OLX,2026-04-07,OLX-ES-002,Apartamento 2 quartos área de serviço Esperança Ipatinga – OLX
+Esperança,APARTMENT,3,2,89.0,400000,4494,,VivaReal,2026-04-07,VR-ES-003,Apartamento 3q 1s térreo Esperança Ipatinga – Chaves na Mão
+Esperança,APARTMENT,3,2,100.0,445000,4450,,Zap Imóveis,2026-04-07,ZAP-ES-004,Apartamento 3 quartos 1 suíte varanda Esperança Ipatinga
+Esperança,APARTMENT,3,2,100.0,450000,4500,,Zap Imóveis,2026-04-07,ZAP-ES-005,Apartamento 3 quartos varanda gourmet Esperança Ipatinga
+Jardim Panorama,APARTMENT,3,2,96.0,400000,4167,,VivaReal,2026-04-07,VR-JP-001,Apartamento 3q 1v 2b Jardim Panorama Ipatinga – Netimóveis
+Jardim Panorama,APARTMENT,3,2,99.0,550000,5556,,Zap Imóveis,2026-04-07,ZAP-JP-002,Apartamento 3q 1s Jardim Panorama Ipatinga
+Jardim Panorama,APARTMENT,3,2,100.0,550000,5500,,VivaReal,2026-04-07,VR-JP-003,Apartamento 3q 1s 2v Jardim Panorama Ipatinga
+Imbaúbas,APARTMENT,2,2,112.0,500000,4464,,Zap Imóveis,2026-04-07,ZAP-IM-001,Apartamento 2q 1s hidro 112 m² Imbaúbas Ipatinga – JF Corretor
+Imbaúbas,APARTMENT,3,2,82.0,450000,5488,,VivaReal,2026-04-07,VR-IM-002,Lançamento 3 quartos 82 m² Imbaúbas Ipatinga
+Imbaúbas,APARTMENT,3,2,132.0,750000,5682,,Zap Imóveis,2026-04-07,ZAP-IM-003,Apartamento 3q 1s 132 m² Imbaúbas Ipatinga
+Novo Cruzeiro,APARTMENT,3,2,115.0,480000,4174,,VivaReal,2026-04-07,VR-NC-001,Apartamento 3 quartos 115 m² Novo Cruzeiro Ipatinga
+Novo Cruzeiro,APARTMENT,3,2,100.0,490000,4900,,Zap Imóveis,2026-04-07,ZAP-NC-002,Apartamento 3q 1s Novo Cruzeiro Ipatinga
+Novo Cruzeiro,APARTMENT,3,2,210.0,800000,3810,,VivaReal,2026-04-07,VR-NC-003,Cobertura 210 m² 3 quartos Novo Cruzeiro Ipatinga
+Forquilha,APARTMENT,2,1,60.0,210000,3500,Av. Forquilha,OLX,2026-04-07,OLX-FQ-001,Apartamento 2 quartos Forquilha Ipatinga
+Forquilha,APARTMENT,2,1,47.0,168000,3574,Av. Forquilha,OLX,2026-04-07,OLX-FQ-002,Apartamento 2 quartos 47 m² Forquilha Ipatinga
+Forquilha,APARTMENT,2,1,74.0,335000,4527,Av. Forquilha,Zap Imóveis,2026-04-07,ZAP-FQ-003,Apartamento 2 quartos 74 m² Forquilha Ipatinga
+Forquilha,APARTMENT,2,1,60.0,190000,3167,Av. Forquilha,OLX,2026-04-07,OLX-FQ-004,Apartamento 2 quartos MCMV elevador Forquilha Ipatinga
+Chácaras,APARTMENT,3,2,90.0,450000,5000,Av. Forquilha,VivaReal,2026-04-07,VR-CH-001,Apartamento 3q 1s varanda churrasco Chácaras Oliveiras Ipatinga

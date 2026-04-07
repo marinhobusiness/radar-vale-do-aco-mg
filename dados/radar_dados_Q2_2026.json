@@ -1,0 +1,243 @@
+{
+  "meta": {
+    "edicao": "Q2/2026",
+    "data_coleta": "2026-04-07",
+    "n_total": 62,
+    "n_bairros": 12,
+    "portais": {
+      "Zap Imóveis": 30,
+      "VivaReal": 25,
+      "OLX": 7
+    },
+    "fontes_macro": {
+      "selic": {
+        "valor": 14.75,
+        "fonte": "Banco Central · mar/2026"
+      },
+      "ipca_12m": {
+        "valor": 3.81,
+        "fonte": "IBGE · fev/2026"
+      },
+      "bh_m2": {
+        "valor": 10642,
+        "fonte": "FipeZAP · dez/2025"
+      },
+      "fipezap_2025": {
+        "valor": 6.52,
+        "fonte": "ANOREG/DataZap · jan/2026"
+      },
+      "fipezap_2024": {
+        "valor": 7.73,
+        "fonte": "ANOREG/DataZap · jan/2025"
+      }
+    }
+  },
+  "resumo_mercado": {
+    "pm2_media": 5293,
+    "pm2_mediana": 5000,
+    "pm2_dp": 1630,
+    "pm2_q1": 4192,
+    "pm2_q3": 5747,
+    "pm2_min": 2500,
+    "pm2_max": 9800,
+    "valor_medio": 457450,
+    "area_mediana": 92.5
+  },
+  "bairros": [
+    {
+      "bairro": "Cidade Nobre",
+      "n": 9,
+      "media": 6754,
+      "mediana": 7148,
+      "dp": 2211,
+      "q1": 5769,
+      "q3": 8589,
+      "min": 2500,
+      "max": 9700,
+      "ic95_inf": 5054.0,
+      "ic95_sup": 8453.0,
+      "desconto_bh_pct": 32.8
+    },
+    {
+      "bairro": "Horto",
+      "n": 4,
+      "media": 7122,
+      "mediana": 6703,
+      "dp": 1909,
+      "q1": 6265,
+      "q3": 7560,
+      "min": 5282,
+      "max": 9800,
+      "ic95_inf": NaN,
+      "ic95_sup": NaN,
+      "desconto_bh_pct": 37.0
+    },
+    {
+      "bairro": "Bom Retiro",
+      "n": 7,
+      "media": 6373,
+      "mediana": 6500,
+      "dp": 1542,
+      "q1": 5180,
+      "q3": 6965,
+      "min": 4676,
+      "max": 9146,
+      "ic95_inf": 4947.0,
+      "ic95_sup": 7800.0,
+      "desconto_bh_pct": 38.9
+    },
+    {
+      "bairro": "Jardim Panorama",
+      "n": 3,
+      "media": 5074,
+      "mediana": 5500,
+      "dp": 786,
+      "q1": 4834,
+      "q3": 5528,
+      "min": 4167,
+      "max": 5556,
+      "ic95_inf": NaN,
+      "ic95_sup": NaN,
+      "desconto_bh_pct": 48.3
+    },
+    {
+      "bairro": "Imbaúbas",
+      "n": 3,
+      "media": 5211,
+      "mediana": 5488,
+      "dp": 654,
+      "q1": 4976,
+      "q3": 5585,
+      "min": 4464,
+      "max": 5682,
+      "ic95_inf": NaN,
+      "ic95_sup": NaN,
+      "desconto_bh_pct": 48.4
+    },
+    {
+      "bairro": "Caravelas",
+      "n": 3,
+      "media": 5419,
+      "mediana": 5302,
+      "dp": 1630,
+      "q1": 4576,
+      "q3": 6203,
+      "min": 3851,
+      "max": 7104,
+      "ic95_inf": NaN,
+      "ic95_sup": NaN,
+      "desconto_bh_pct": 50.2
+    },
+    {
+      "bairro": "Iguaçu",
+      "n": 6,
+      "media": 5503,
+      "mediana": 5224,
+      "dp": 1170,
+      "q1": 4908,
+      "q3": 5544,
+      "min": 4387,
+      "max": 7731,
+      "ic95_inf": 4275.0,
+      "ic95_sup": 6731.0,
+      "desconto_bh_pct": 50.9
+    },
+    {
+      "bairro": "Esperança",
+      "n": 5,
+      "media": 4170,
+      "mediana": 4450,
+      "dp": 617,
+      "q1": 4333,
+      "q3": 4494,
+      "min": 3073,
+      "max": 4500,
+      "ic95_inf": 3404.0,
+      "ic95_sup": 4936.0,
+      "desconto_bh_pct": 58.2
+    },
+    {
+      "bairro": "Novo Cruzeiro",
+      "n": 3,
+      "media": 4295,
+      "mediana": 4174,
+      "dp": 555,
+      "q1": 3992,
+      "q3": 4537,
+      "min": 3810,
+      "max": 4900,
+      "ic95_inf": NaN,
+      "ic95_sup": NaN,
+      "desconto_bh_pct": 60.8
+    },
+    {
+      "bairro": "Veneza",
+      "n": 6,
+      "media": 4242,
+      "mediana": 4122,
+      "dp": 583,
+      "q1": 3964,
+      "q3": 4302,
+      "min": 3614,
+      "max": 5317,
+      "ic95_inf": 3630.0,
+      "ic95_sup": 4853.0,
+      "desconto_bh_pct": 61.3
+    },
+    {
+      "bairro": "Bethânia",
+      "n": 5,
+      "media": 4050,
+      "mediana": 3889,
+      "dp": 676,
+      "q1": 3833,
+      "q3": 4412,
+      "min": 3158,
+      "max": 4960,
+      "ic95_inf": 3211.0,
+      "ic95_sup": 4890.0,
+      "desconto_bh_pct": 63.5
+    },
+    {
+      "bairro": "Forquilha",
+      "n": 4,
+      "media": 3692,
+      "mediana": 3537,
+      "dp": 584,
+      "q1": 3417,
+      "q3": 3812,
+      "min": 3167,
+      "max": 4527,
+      "ic95_inf": NaN,
+      "ic95_sup": NaN,
+      "desconto_bh_pct": 66.8
+    }
+  ],
+  "tipologias": [
+    {
+      "quartos": 2,
+      "n": 20,
+      "preco_m2_med": 4426,
+      "valor_med": 329500,
+      "area_med": 74.0,
+      "aluguel_est": 1384,
+      "yield_bruto": 5.04
+    },
+    {
+      "quartos": 3,
+      "n": 42,
+      "preco_m2_med": 5339,
+      "valor_med": 555000,
+      "area_med": 100.0,
+      "aluguel_est": 2331,
+      "yield_bruto": 5.04
+    }
+  ],
+  "composicao_oferta": [
+    {
+      "tipo": "Apartamento",
+      "n": 62,
+      "pct": 100.0
+    }
+  ]
+}
