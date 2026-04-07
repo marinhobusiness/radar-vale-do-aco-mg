@@ -42,10 +42,17 @@ def git_push(mensagem=None):
     print(f"\n📤 Publicando no GitHub...")
     print(f"   Commit: {mensagem}")
 
+    # Detectar branch atual
+    branch_result = subprocess.run(
+        ["git", "branch", "--show-current"],
+        capture_output=True, text=True, cwd=REPO_DIR
+    )
+    branch = branch_result.stdout.strip() or "main"
+
     cmds = [
-        (["git", "add", "-A"],             "git add"),
-        (["git", "commit", "-m", mensagem], "git commit"),
-        (["git", "push", "origin", "main"], "git push"),
+        (["git", "add", "-A"],                        "git add"),
+        (["git", "commit", "-m", mensagem],            "git commit"),
+        (["git", "push", "-u", "origin", branch],      "git push"),
     ]
 
     for cmd, nome in cmds:
