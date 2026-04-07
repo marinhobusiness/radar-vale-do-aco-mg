@@ -18,7 +18,11 @@ def fmt_brl(valor):
     """Formata número como moeda brasileira sem R$."""
     if valor is None:
         return "—"
-    return f"{int(valor):,}".replace(",", ".")
+    try:
+        v = int(valor)
+    except (ValueError, TypeError):
+        return "—"
+    return f"{v:,}".replace(",", ".")
 
 
 def pct(valor):
