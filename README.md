@@ -152,7 +152,7 @@ O arquivo CSV bruto (`dados/ipatinga_imoveis_Q2_2026.csv`) contém os seguintes 
 MARINHO, Wederson. Radar Imobiliário do Vale do Aço: análise quantitativa
 do mercado imobiliário de Ipatinga-MG — Q2 2026. Ipatinga: 2026.
 Disponível em: https://marinhobusiness.github.io/radar-vale-do-aco.
-Acesso em: abr. 2026. DOI: [aguardando registro Zenodo]
+Acesso em: abr. 2026.
 ```
 
 ### BibTeX
@@ -164,28 +164,9 @@ Acesso em: abr. 2026. DOI: [aguardando registro Zenodo]
   year      = {2026},
   publisher = {GitHub},
   url       = {https://github.com/marinhobusiness/radar-vale-do-aco},
-  note      = {DOI: aguardando registro Zenodo},
   license   = {CC BY 4.0}
 }
 ```
-
----
-
-## Registro de DOI (Zenodo)
-
-Para obter um DOI permanente para citação acadêmica:
-
-1. Acesse [zenodo.org](https://zenodo.org) e faça login com seu ORCID (`0009-0004-6401-3465`)
-2. Clique em **New upload**
-3. Faça upload de `index.html` + `dados/ipatinga_imoveis_Q2_2026.csv`
-4. Preencha os metadados:
-   - **Title:** Radar Imobiliário do Vale do Aço — Q2/2026
-   - **Resource type:** Dataset + Report
-   - **Authors:** Marinho, Wederson (ORCID: 0009-0004-6401-3465)
-   - **Keywords:** real estate, ipatinga, vale do aco, mercado imobiliário, FipeZAP, data science
-   - **License:** Creative Commons Attribution 4.0
-5. Publique e copie o DOI gerado
-6. Execute: `python publicar.py --atualizar-readme 10.5281/zenodo.XXXXXXX`
 
 ---
 
