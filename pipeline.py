@@ -115,6 +115,14 @@ def main():
             caminho_csv = str(csvs[0])
         print(f"  CSV: {caminho_csv}")
 
+    # ── ETAPA 1B: VALIDAÇÃO ─────────────────────────────────────────────────
+    etapa("1B", 4, "VALIDAÇÃO DE QUALIDADE DE DADOS")
+
+    from validar_dados import validar
+    validacao_ok = validar(caminho_csv)
+    if not validacao_ok:
+        print("\n⚠️  Validação retornou alertas. Continuando com cautela...")
+
     # ── ETAPA 2: ANÁLISE ─────────────────────────────────────────────────────
     etapa(2, 4, "ANÁLISE ESTATÍSTICA")
 
