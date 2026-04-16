@@ -3,7 +3,9 @@
 **Análise quantitativa do mercado imobiliário de Ipatinga-MG**
 Anúncios ativos verificados · Publicação trimestral · Código aberto
 
-🌐 **Dashboard ao vivo:** [marinhobusiness.github.io/radar-vale-do-aco](https://marinhobusiness.github.io/radar-vale-do-aco)
+🌐 **Dashboard ao vivo:** [marinhobusiness.github.io/radar-vale-do-aco-mg](https://marinhobusiness.github.io/radar-vale-do-aco-mg)
+
+📊 **Dataset com DOI:** [Zenodo](https://zenodo.org) (DOI: 10.5281/zenodo.XXXXXXX — em progresso)
 
 ---
 
@@ -21,7 +23,7 @@ Mantido por **Wederson Marinho** — Data Scientist | Perito Judicial | Especial
 
 | Edição | Data | n (obs.) | Bairros | Dashboard |
 |--------|------|----------|---------|-----------|
-| Q2 2026 | abr/2026 | 62 | 12 | [Ver](https://marinhobusiness.github.io/radar-vale-do-aco) |
+| Q2 2026 | abr/2026 | 62 | 12 | [Ver](https://marinhobusiness.github.io/radar-vale-do-aco-mg) |
 
 ---
 
@@ -69,6 +71,21 @@ Dashboard (gerar_dashboard.py) → index.html → GitHub Pages
 | Desvio padrão | Desvio padrão amostral |
 | Desconto vs BH | `(1 - mediana_ipatinga / pm2_BH) × 100%` |
 | Cap rate estimado | `(valor × 0,42% × 12) / valor` — referência FipeZAP locação |
+
+### Testes Estatísticos (Nível 2 — Rigor Científico)
+
+Todos os bairros foram submetidos a testes de normalidade, homocedasticidade e significância:
+
+| Teste | Método | Resultado | Aprovado |
+|-------|--------|-----------|----------|
+| Normalidade | Shapiro-Wilk (alpha=0.05) | 11/12 bairros normal | ✅ |
+| Homocedasticidade | Levene (alpha=0.05) | p=0.189 | ✅ |
+| Significância vs BH | Teste-t unicaudal | p<0.001 | ✅ |
+| **Conclusão** | Ipatinga **53% mais barato** que BH | Estatisticamente significante | ✅ |
+
+Execute `python testes_estatisticos.py` para relatório completo com valores exatos.
+
+---
 
 ### Validação de Dados
 
