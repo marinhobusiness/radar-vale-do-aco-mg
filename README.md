@@ -1,11 +1,13 @@
 # Radar Imobiliário · Vale do Aço
 
+[![DOI](https://zenodo.org/badge/1212048914.svg)](https://doi.org/10.5281/zenodo.19601663)
+
 **Análise quantitativa do mercado imobiliário de Ipatinga-MG**
 Anúncios ativos verificados · Publicação trimestral · Código aberto
 
-🌐 **Dashboard ao vivo:** [marinhobusiness.github.io/radar-vale-do-aco-mg](https://marinhobusiness.github.io/radar-vale-do-aco-mg)
+**Dashboard ao vivo:** [marinhobusiness.github.io/radar-vale-do-aco-mg](https://marinhobusiness.github.io/radar-vale-do-aco-mg)
 
-📊 **Dataset com DOI:** [Zenodo](https://zenodo.org) (DOI: 10.5281/zenodo.XXXXXXX — em progresso)
+**Dataset Zenodo:** [DOI 10.5281/zenodo.19601663](https://doi.org/10.5281/zenodo.19601663)
 
 ---
 
@@ -182,12 +184,27 @@ O arquivo CSV bruto (`dados/ipatinga_imoveis_Q2_2026.csv`) contém os seguintes 
 
 ```
 MARINHO, Wederson. Radar Imobiliário do Vale do Aço: análise quantitativa
-do mercado imobiliário de Ipatinga-MG — Q2 2026. Ipatinga: 2026.
-Disponível em: https://marinhobusiness.github.io/radar-vale-do-aco.
+do mercado imobiliário de Ipatinga-MG — Q2 2026. Ipatinga: Zenodo, 2026.
+DOI: 10.5281/zenodo.19601663. 
+Disponível em: https://doi.org/10.5281/zenodo.19601663.
 Acesso em: abr. 2026.
 ```
 
-### BibTeX
+### BibTeX (Zenodo — Recomendado)
+
+```bibtex
+@dataset{marinho_2026_zenodo_19601663,
+  author       = {Marinho, Wederson},
+  title        = {{Radar Imobiliário do Vale do Aço - Ipatinga-MG Q2/2026}},
+  year         = 2026,
+  month        = apr,
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.19601663},
+  url          = {https://doi.org/10.5281/zenodo.19601663}
+}
+```
+
+### BibTeX (GitHub)
 
 ```bibtex
 @dataset{marinho2026radar,
@@ -195,7 +212,7 @@ Acesso em: abr. 2026.
   title     = {Radar Imobili{\'a}rio do Vale do A{\c{c}}o -- Q2 2026},
   year      = {2026},
   publisher = {GitHub},
-  url       = {https://github.com/marinhobusiness/radar-vale-do-aco},
+  url       = {https://github.com/marinhobusiness/radar-vale-do-aco-mg},
   license   = {CC BY 4.0}
 }
 ```
