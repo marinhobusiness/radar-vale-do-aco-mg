@@ -1,0 +1,11 @@
+{
+  "IQR_1.0x": {
+    "n_total": 58,
+    "n_removido": 7,
+    "limites": [
+      1990,
+      8755
+    ],
+    "mediana_geral": 4930,
+    "media_geral": 5013,
+    "bairros_validos": 

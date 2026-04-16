@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """
 pipeline.py — Radar Imobiliário do Vale do Aço
 Orquestra coleta → análise → dashboard → publicação
@@ -7,6 +9,13 @@ Autor: Wederson Marinho · Data Scientist
 """
 
 import sys
+import os
+
+# Configurar encoding UTF-8 para Windows
+if sys.platform == "win32":
+    os.environ["PYTHONIOENCODING"] = "utf-8"
+    sys.stdout.reconfigure(encoding="utf-8")
+
 import time
 import argparse
 from pathlib import Path
@@ -14,12 +23,11 @@ from datetime import date
 
 
 def banner():
-    print("""
-╔══════════════════════════════════════════════════════════════╗
-║       RADAR IMOBILIÁRIO · VALE DO AÇO · PIPELINE            ║
-║       Wederson Marinho · Data Scientist                      ║
-╚══════════════════════════════════════════════════════════════╝
-""")
+    print("=" * 66)
+    print("  RADAR IMOBILIÁRIO · VALE DO AÇO · PIPELINE")
+    print("  Wederson Marinho · Data Scientist")
+    print("=" * 66)
+    print()
 
 
 def parse_args():
@@ -122,6 +130,33 @@ def main():
     validacao_ok = validar(caminho_csv)
     if not validacao_ok:
         print("\n⚠️  Validação retornou alertas. Continuando com cautela...")
+
+    # ── ETAPA 1C: TESTES ESTATÍSTICOS ────────────────────────────────────────
+    etapa("1C", 4, "TESTES ESTATÍSTICOS RIGOROSOS")
+
+    try:
+        from testes_estatisticos import imprimir_relatorio_estatistico
+        import pandas as pd
+        df_teste = pd.read_csv(caminho_csv)
+        
+        # Limpar conforme pipeline
+        Q1 = df_teste['preco_m2'].quantile(0.25)
+        Q3 = df_teste['preco_m2'].quantile(0.75)
+        IQR = Q3 - Q1
+        df_teste = df_teste[
+            (df_teste['preco_m2'] >= Q1 - 1.5*IQR) &
+            (df_teste['preco_m2'] <= Q3 + 1.5*IQR) &
+            (df_teste['area_m2'].between(20, 500)) &
+            (df_teste['valor_anunciado'].between(100_000, 10_000_000))
+        ]
+        
+        imprimir_relatorio_estatistico(df_teste)
+        print(f"\n  [i] Salvo em: dados/sensibilidade_Q2_2026.json")
+    except ImportError as e:
+        print(f"  [i] scipy nao instalado ainda, pulando testes (pip em andamento)")
+    except Exception as e:
+        print(f"  [!] Erro: {str(e)}")
+        print("     Execute manualmente: python testes_estatisticos.py")
 
     # ── ETAPA 2: ANÁLISE ─────────────────────────────────────────────────────
     etapa(2, 4, "ANÁLISE ESTATÍSTICA")

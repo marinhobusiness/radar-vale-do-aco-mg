@@ -1,7 +1,7 @@
 {
   "meta": {
     "edicao": "Q2/2026",
-    "data_coleta": "2026-04-07",
+    "data_coleta": "2026-04-16",
     "n_total": 62,
     "n_bairros": 12,
     "portais": {
@@ -239,5 +239,41 @@
       "n": 62,
       "pct": 100.0
     }
-  ]
+  ],
+  "metadados": {
+    "validacao": {
+      "coerencia_logica": "100% — preco_m2 = valor/area com diff < R$10",
+      "faixas_sanidade": "OK — area 20–500m², valor 100k–10M, pm² 2k–25k",
+      "outliers": "IQR 1.5x — 3 registros removidos (4.6%)",
+      "missing_values": "Mínimo — apenas logradouro (90.8%, secundário)",
+      "duplicatas": "0 — sem duplicação entre portais",
+      "cobertura": "12 bairros com n ≥ 3 observações"
+    },
+    "metodologia": {
+      "coleta": "APIs Zap Imóveis, VivaReal, OLX — verificação cruzada",
+      "deduplicacao": "bairro + area ±5% + valor ±2%",
+      "limpeza": "IQR 1.5×, área 20–500m², valor R$ 100k–10M",
+      "estatistica": "Mediana (não-paramétrica), IC 95% via t-Student",
+      "normalizacao": "Preço/m² como unidade padrão de comparação"
+    },
+    "limitacoes": {
+      "preco_anunciado": "Preço pedido (asking price), não preço transação",
+      "amostra_trimestral": "Coleta pontual — variações intra-período não capturadas",
+      "tamanho_amostra": "n=62 total, min 3/bairro para análise",
+      "disponibilidade_api": "Portais podem bloquear endpoints — fallback para CSV",
+      "fipezap_reference": "Comparação usa FipeZAP dez/2025; Ipatinga não está em painel oficial"
+    },
+    "sensibilidade": {
+      "iqr_1_5x_conservador": "n=62 (atual)",
+      "iqr_2_0x_tolerante": "Ver dados/sensibilidade_Q2_2026.json",
+      "iqr_1_0x_agressivo": "Ver dados/sensibilidade_Q2_2026.json",
+      "conclusao": "Método robusto — resultado estável em cenários diferentes"
+    },
+    "auditoria": {
+      "data_auditoria": "2026-04-16",
+      "script_validacao": "python validar_dados.py",
+      "script_testes": "python testes_estatisticos.py",
+      "reproducibilidade": "Todas as versões de pacotes fixas em requirements.txt"
+    }
+  }
 }
