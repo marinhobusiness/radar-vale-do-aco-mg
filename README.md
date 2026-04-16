@@ -13,7 +13,7 @@ O **Radar Imobiliário do Vale do Aço** coleta anúncios públicos de apartamen
 
 O pipeline é 100% automatizável, reproduzível e auditável — todos os dados brutos são publicados junto com o código.
 
-Mantido por **Wederson Marinho** — Data Scientist · CRECI-MG 58.263-F · CNAI 51.239 · ORCID [0009-0004-6401-3465](https://orcid.org/0009-0004-6401-3465).
+Mantido por **Wederson Marinho** — Data Scientist | Perito Judicial | Especialista em Mercado Imobiliário · CRECI-MG 58.263-F · CNAI 51.239 · ORCID [0009-0004-6401-3465](https://orcid.org/0009-0004-6401-3465).
 
 ---
 
@@ -195,7 +195,7 @@ Este relatório é de distribuição gratuita. Livre reprodução com atribuiç�
 
 ## Contato
 
-**Wederson Marinho** · Data Scientist · Corretor de Imóveis
+**Wederson Marinho** — Data Scientist | Perito Judicial | Especialista em Mercado Imobiliário | Corretor de Imóveis
 - Email: marinhobusiness@gmail.com
 - LinkedIn: [linkedin.com/in/marinhobusiness](https://linkedin.com/in/marinhobusiness)
 - ORCID: [0009-0004-6401-3465](https://orcid.org/0009-0004-6401-3465)
